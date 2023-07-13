@@ -1,0 +1,118 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 2em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo.GPT:hover {
+  filter: drop-shadow(0 0 2em #8be9c9aa);
+}
+.logo.TS:hover {
+  filter: drop-shadow(0 0 2em #194450fa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+input {
+  position: fixed;
+  bottom: 100px;
+  left: 12.5%;
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+.response {
+  position: fixed;
+  top: 90px;
+  left: 12.5%;
+  width: 75%;
+  overflow: wrap;
+  /*Remove the borders*/
+  border: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 1px solid #000000;
+  resize: none;
+}
+.sourceBox {
+  position: fixed;
+  background-color: rgb(41, 24, 41);
+  top: 40%;
+  left: 12.5%;
+  width: 75%;
+  overflow: wrap;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 1px solid #000000;
+  resize: none;
+}
+.Response-Title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+.Source-Title {
+  position: fixed;
+  top: 35%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.button {
+  transition: transform 1.5s ease-in-out;
+}
+.grayed-out {
+  background-color: #ccc;
+  color: #888;
+  /* Add any other styles to visually indicate the button is disabled */
+}
+.button.clicked {
+  transform: translateY(325px);
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+.fade-out-wrapper.fade-out,
+.read-the-docs.fade-out {
+  pointer-events: none;
+}
+.card {
+  padding: 2em;
+}
+.read-the-docs {
+  color: #888;
+}
