@@ -82,7 +82,7 @@ Then the required drivers should be installed:
 
 #### AMD
 Run this command
-- `amdgpu-install --usecase=opencl,rocm` or go [here] (http://repo.radeon.com/amdgpu-install/5.5/)
+- `amdgpu-install --usecase=opencl,rocm` or go [here](http://repo.radeon.com/amdgpu-install/5.5/)
 
 Verify that CLBlas can see the GPU
 - `sudo clinfo`
