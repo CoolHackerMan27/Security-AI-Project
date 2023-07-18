@@ -83,5 +83,17 @@ Then the required drivers should be installed:
 #### AMD
 Run this command
 - `amdgpu-install --usecase=opencl,rocm` or go [here] (http://repo.radeon.com/amdgpu-install/5.5/)
+
 Verify that CLBlas can see the GPU
 - `sudo clinfo`
+  
+If there are multiple GPU's you should use `GGML_OPENCL_DEVICE` to select the correct GPU
+
+### Installing LlammaCpp-python and TensorFlow
+Once cMake has been configured and the correct drivers have been installed you can install LlammaCpp-python:
+- `pip install llamma-cpp-python` if you have previously installed LlammaCpp add `--no-cache-dir` to the end
+When the LlammaCpp is installed you can install tensorflow:
+- `pip install tensorflow`
+- `pip install tf-nightly`
+  
+
