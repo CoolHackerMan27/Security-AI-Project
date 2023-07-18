@@ -45,21 +45,23 @@ Then after the source documents are in the folder, run this command in the termi
 ```shell
 python ingest.py
 ```
-This will create a folder called db with the vectorstore. This process can take 30 seconds per document, depending on document sise and type. Each time the ingest script is run it adds any new soruce files to the vectorstore. To start from an empty data set just delete the db folder.
+This will create a folder called db with the vectorstore. This process can take 30 seconds per document, depending on the document size and type. Each time the ingest script is run it adds any new source files to the vectorstore. To start from an empty data set just delete the db folder.
 
-At this poing the model is fully configured but, before you can use the model you need to configure the API host address. This repo sets the API host to 0.0.0.0, so it will be accessable on the machine network IP and its local host. This API is not designed to be exposed to the greater internet. Doing so is a security risk.
+At this point the model is fully configured but, before you can use the model you need to configure the API host address. This repo sets the API host to 0.0.0.0, which will be accessible on the machine's network IP and its local host. This API is not designed to be exposed to the greater internet. Doing so is a security risk.
 
 ## Backend-GPU Support
-This is much more complicated to set up than the GPT4ALL models, but yeilds better responces and runs faster.
+This is much more complicated to set up than the GPT4ALL models, but yields better responses and runs faster.
 
 You need to configure LlammaCpp-python for GPU acceleration.
-This varys depending on the install envirment and the OS. For more information go to: [LlammaCpp-python] (https://github.com/abetlen/llama-cpp-python) or [LlammaCpp](https://github.com/ggerganov/llama.cpp).
+This varies depending on the install environment and the OS. For more information go to: [LlammaCpp-python] (https://github.com/abetlen/llama-cpp-python) or [LlammaCpp](https://github.com/ggerganov/llama.cpp).
 Here is a general overview 
 
 First, install the necessary requirements using pip.
 ```shell
 pip3 install -r requirements.txt
 ```
-Then install cMake: [cMake](
+Then install cMake: [cMake] (https://cmake.org/download/)
+
+One cMake is installed the correct environment variables must be set
 
 
