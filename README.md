@@ -62,6 +62,19 @@ pip3 install -r requirements.txt
 ```
 Then install cMake: [cMake] (https://cmake.org/download/)
 
-One cMake is installed the correct environment variables must be set
-
-
+Once cMake is installed the correct environment variables must be set:
+#### Nivida
+- ``set CMAKE_ARGS="-DLLAMA_CUBLAS=on"``: Tells cMake to build LlammaCpp wheel with Cuda acceleration.
+- ``set FORCE_CMAKE=1``
+#### AMD (Only on Linux)
+- ``set CMAKE_ARGS="-DLLAMA_CLBLAS=on"``: Tells cMake to build LlammaCpp wheel with CLBlas acceleration.
+- ``apt install libclblast-dev``: Installs CLBLas
+- ``set FORCE_CMAKE=1``
+Then the required drivers should be installed:
+#### Nvidia
+-Latest NVidia drivers.-- https://www.nvidia.com/drivers
+- CUDA 12.1-- https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
+- CUDA 11.8-- https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
+- cuDNN 8.9.1 for CUDA 11.8-- https://developer.nvidia.com/rdp/cudnn-download
+- x64 C++ Redistributable.-- https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
+- x86 C++ Redistributable.-- https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
