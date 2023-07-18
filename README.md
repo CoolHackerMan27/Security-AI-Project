@@ -95,5 +95,10 @@ Once cMake has been configured and the correct drivers have been installed you c
 When the LlammaCpp is installed you can install tensorflow:
 - `pip install tensorflow`
 - `pip install tf-nightly`
-  
 
+### Configuring .env and privateGPy.py
+Before the model can be run the .env and main python file need to be edited.
+If using Cuda make sure the install locations match those inside pivateGPT.py
+Then edit EnviromentVariable.env and change the name to .env
+
+# Usage
