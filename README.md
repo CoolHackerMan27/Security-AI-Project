@@ -81,7 +81,7 @@ Then the required drivers should be installed:
 - x86 C++ Redistributable.-- https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
 
 #### AMD
-Run this command
+Run this command ( Only on bare-metal Linux installs)
 - `amdgpu-install --usecase=opencl,rocm` or go [here](http://repo.radeon.com/amdgpu-install/5.5/)
 
 Verify that CLBlas can see the GPU
@@ -92,7 +92,7 @@ If there are multiple GPU's you should use `GGML_OPENCL_DEVICE` to select the co
 ### Installing LlammaCpp-python and TensorFlow
 Once cMake has been configured and the correct drivers have been installed you can install LlammaCpp-python:
 - `pip install llamma-cpp-python` if you have previously installed LlammaCpp add `--no-cache-dir` to the end
-When the LlammaCpp is installed you can install tensorflow:
+When the LlammaCpp is installed you can install TensorFlow:
 - `pip install tensorflow`
 - `pip install tf-nightly`
 
@@ -101,4 +101,21 @@ Before the model can be run the .env and main python file need to be edited.
 If using Cuda make sure the install locations match those inside pivateGPT.py
 Then edit EnviromentVariable.env and change the name to .env
 
+## Frontend Setup
+
+In its current state, there is a web front-end that also must be set up and deployed.
+The front end is made with Typescript using React, Vite, and NPM. It is not designed to be exposed to the internet and doing so is a major security risk. 
+### Installing NPM
+First, you need to install NPM and Node.js if they are not installed already. [Node] (https://nodejs.org/en)
+Then move to the directory where you cloned the repo and run ```npm install```.
+This should install all the required packages and configure Vite.
+
+### Configuring API endpoints
+Next, you need to make sure that the API in the website is pointing to the IP of the machine that is running the AI. If they are the same machine then set both to be the local host.
+
+### Running the frontend
+
+Once everything has been configured you can start the front end with ```npm run dev```. This should start up the website and serve it on that machine's local host. This can be configured to serve other devices on that network if desired. 
+
 # Usage
+The first page on the website is a landing page that provides some links to learn more about the individual parts used to create the application and website. Click the initialize button to start. From there you can ask questions and the responses and sources used will appear in their respective boxes. It is worth noting that depending on the hardware it can take several minutes to answer each question. 
