@@ -106,7 +106,7 @@ Then edit EnviromentVariable.env and change the name to .env
 In its current state, there is a web frontend that also must be set up and deployed.
 The front end is made with Typescript using React, Vite, and NPM. It is not designed to be exposed to the internet and doing so is a major security risk. 
 ### Installing NPM
-First, you need to install NPM and Node.js if they are not installed already. [Node] (https://nodejs.org/en)
+First, you need to install NPM and Node.js if they are not installed already. [Node](https://nodejs.org/en)
 Then move to the directory where you cloned the repo and run ```npm install```.
 This should install all the required packages and configure Vite.
 
