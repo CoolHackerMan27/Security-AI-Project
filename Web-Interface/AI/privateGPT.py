@@ -35,10 +35,15 @@ target_source_chunks = int(os.environ.get('TARGET_SOURCE_CHUNKS', 4))
 # Added a paramater for GPU layer numbers
 n_gpu_layers = os.environ.get('N_GPU_LAYERS') 
 # #Path to Cuda installation
-os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/bin")
-os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/extras/CUPTI/lib64")
-os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/include")
-os.add_dll_directory("C:/Tools/cuda/bin")
+try:
+    os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/bin")
+    os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/extras/CUPTI/lib64")
+    os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/include")
+    os.add_dll_directory("C:/Tools/cuda/bin")
+except:
+    print("Cuda not found")
+    pass
+
 args = ("")
 embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
 db = Chroma(persist_directory=persist_directory,

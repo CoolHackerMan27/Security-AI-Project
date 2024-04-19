@@ -21,7 +21,7 @@ const initButton: React.FC<ButtonProps> = ({
     // Make the API request
     if (apiInitialized == false) {
       setButtonLabel("Initializing privateGPT");
-      fetch("http://10.10.60.49:5005/api/start", { method: "POST" })
+      fetch("http://127.0.0.1:5005/api/start", { method: "POST" })
         .then((response) => response.json())
         .then((response) => {
           onAPIResponse(response.data, response.docs);
@@ -38,7 +38,7 @@ const initButton: React.FC<ButtonProps> = ({
       var query = text;
       onAPIResponse(" ", " ");
       setButtonLabel("Waiting for response... This may take a while.");
-      fetch("http://10.10.60.49:5005/api/run", {
+      fetch("http://127.0.0.1:5005/api/run", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
