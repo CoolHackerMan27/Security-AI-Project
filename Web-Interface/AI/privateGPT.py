@@ -33,12 +33,17 @@ model_path = os.environ.get('MODEL_PATH')
 model_n_ctx = os.environ.get('MODEL_N_CTX')
 target_source_chunks = int(os.environ.get('TARGET_SOURCE_CHUNKS', 4))
 # Added a paramater for GPU layer numbers
-n_gpu_layers = os.environ.get('N_GPU_LAYERS') 
+n_gpu_layers = os.environ.get('N_GPU_LAYERS')
 # #Path to Cuda installation
+# These likely need to be editied for your particular cuda version and install location. Just make sure these match your install path.
 try:
-    os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/bin")
-    os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/extras/CUPTI/lib64")
-    os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/include")
+    os.add_dll_directory(
+        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/bin")
+    os.add_dll_directory(
+        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/extras/CUPTI/lib64")
+    os.add_dll_directory(
+        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/include")
+    # This folder does not exist on a normal CUDA install, so you wil need to make it. Just copy the "bin" folder from your CUDA install.
     os.add_dll_directory("C:/Tools/cuda/bin")
 except:
     print("Cuda not found")
@@ -56,7 +61,8 @@ print("Loading the LLM...")
 # Prepare the LLM
 match model_type:
     case "LlamaCpp":
-        llm = LlamaCpp(model_path=model_path, n_ctx=model_n_ctx, callbacks=callbacks, verbose=False, n_gpu_layers=n_gpu_layers)
+        llm = LlamaCpp(model_path=model_path, n_ctx=model_n_ctx,
+                       callbacks=callbacks, verbose=False, n_gpu_layers=n_gpu_layers)
     case "GPT4All":
         llm = GPT4All(model=model_path, n_ctx=model_n_ctx,
                       backend='gptj', callbacks=callbacks, verbose=False)
