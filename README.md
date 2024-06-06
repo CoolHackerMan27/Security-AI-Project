@@ -72,6 +72,7 @@ Once cMake is installed the correct environment variables must be set:
 - ``set FORCE_CMAKE=1``
   
 Then the required drivers should be installed:
+(These drivers are likely out of date, please check the latest versions. If installing different version you will need to edit lines 40-47 in privateGPT.py to match the new versions.)
 #### Nvidia
 - Latest NVidia drivers.-- https://www.nvidia.com/drivers
 - CUDA 12.1-- https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
@@ -79,7 +80,7 @@ Then the required drivers should be installed:
 - cuDNN 8.9.1 for CUDA 11.8-- https://developer.nvidia.com/rdp/cudnn-download
 - x64 C++ Redistributable.-- https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
 - x86 C++ Redistributable.-- https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
-
+- Create C:/Tools/cuda/bin and copy the bin folder from the CUDA install into it.
 #### AMD
 Run this command ( Only on bare-metal Linux installs)
 - `amdgpu-install --usecase=opencl,rocm` or go [here](http://repo.radeon.com/amdgpu-install/5.5/)

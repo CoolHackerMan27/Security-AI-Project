@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/api/start', methods=['POST', 'GET', 'PUT'])
+@app.route('/api/start', methods=['POST'])
 def start_endpoint():
     # # Remaining code for question-answering goes here
     # # Parse the command line arguments
@@ -45,8 +45,8 @@ try:
         "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/include")
     # This folder does not exist on a normal CUDA install, so you wil need to make it. Just copy the "bin" folder from your CUDA install.
     os.add_dll_directory("C:/Tools/cuda/bin")
-except:
-    print("Cuda not found")
+except Exception as e:
+    print("No sutiable CUDA installation found. Error:") + str(e)
     pass
 
 args = ("")
@@ -75,7 +75,7 @@ qa = RetrievalQA.from_chain_type(
 # Interactive questions and answers
 
 
-@app.route('/api/run', methods=['POST', 'GET', 'PUT'])
+@app.route('/api/run', methods=['POST'])
 def run_endpoint():
     try:
         response = {}
